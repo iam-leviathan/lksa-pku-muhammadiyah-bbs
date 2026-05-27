@@ -66,7 +66,7 @@
             background-attachment: fixed;
             color: #333;
             line-height: 1.6;
-            padding-top: 100px; /* Jarak pas agar konten awal panti tidak amblas ke belakang navbar */
+            padding-top: 100px;
             position: relative;
             overflow-x: hidden;
             perspective: 1000px;
@@ -123,12 +123,12 @@
             top: 0; 
             left: 0; 
             width: 100%; 
-            background: rgba(11, 81, 57, 0.95); /* Hijau gelap solid anti-tembus pandang */
+            background: rgba(11, 81, 57, 0.95); 
             backdrop-filter: blur(20px); 
             -webkit-backdrop-filter: blur(20px);
             border-bottom: 2px solid rgba(255, 255, 255, 0.15); 
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2); 
-            z-index: 99999; /* Di atas segalanya */
+            z-index: 99999; 
         }
 
         .nav-container { 
@@ -162,7 +162,7 @@
         .menu-toggle { display: flex; flex-direction: column; justify-content: space-between; width: 30px; height: 21px; background: transparent; border: none; cursor: pointer; }
         .menu-toggle span { display: block; height: 3px; width: 100%; background-color: #ffffff; border-radius: 3px; transition: 0.3s; }
         
-        /* Nav Menu Utama (Versi HP/Mobile) */
+        /* Nav Menu Utama */
         .nav-menu { 
             display: flex; 
             flex-direction: column; 
@@ -184,7 +184,7 @@
         .nav-menu li { text-align: center; }
         .nav-menu a { display: block; padding: 12px 0; text-decoration: none; color: #ffffff; font-weight: 500; cursor: pointer; }
         
-        /* CSS DROPDOWN UTAMA */
+        /* CSS DROPDOWN */
         .dropdown { position: relative; }
 
         .dropdown-menu {
@@ -275,7 +275,7 @@
             .dropdown-menu li a:hover { background-color: rgba(255, 255, 255, 0.2) !important; }
         }
 
-        /* INTERAKSI KARTU MULTI-DIMENSI */
+        /* KARTU 3D */
         .card-3d {
             position: relative;
             background: rgba(255, 255, 255, 0.13);
@@ -549,7 +549,7 @@
                 </div>
                 <div style="width: 100%; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.2); border: 2px solid rgba(255,255,255,0.2); transform: translateZ(30px);">
                     <iframe 
-                        src="https://maps.google.com/maps?q=-7.301452564029486,109.36899762281104&t=&z=17&ie=UTF8&iwloc=&output=embed" 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.324317134812!2d109.3562624!3d-7.3174241!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6559ef177695cf%3A0xc3f8ec31a6ba0381!2sBobotsari%2C%20Purbalingga%20Regency%2C%20Central%20Java!5e0!3m2!1sid!2sid!4v1716900000000!5m2!1sid!2sid" 
                         width="100%" 
                         height="280" 
                         style="border:0; display: block;" 
@@ -573,10 +573,20 @@
     </div>
 
     <script>
-        // 1. Loader Screen Hiding
+        // 1. Loader Screen Hiding - MENGGUNAKAN DOMContentLoaded BIAR LANGSUNG HILANG INSTAN
+        document.addEventListener('DOMContentLoaded', () => {
+            const loader = document.getElementById('loaderWrapper');
+            if (loader) {
+                loader.classList.add('hidden');
+            }
+        });
+
+        // Backup penutup loading jika DOMContentLoaded terlewat
         window.addEventListener('load', () => {
             const loader = document.getElementById('loaderWrapper');
-            loader.classList.add('hidden');
+            if (loader && !loader.classList.contains('hidden')) {
+                loader.classList.add('hidden');
+            }
         });
 
         // 2. Hamburger Menu Mobile Toggle
@@ -599,15 +609,7 @@
             }
         });
 
-        // 4. Smooth Scroll ke Atas
-        function scrollToTop() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        }
-
-        // 5. Efek Gerak Kartu 3D Perspektif
+        // 4. Efek Gerak Kartu 3D Perspektif
         const cards = document.querySelectorAll('.card-3d');
         cards.forEach(card => {
             card.addEventListener('mousemove', (e) => {
