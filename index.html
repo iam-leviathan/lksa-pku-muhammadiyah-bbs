@@ -5,16 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LKSA-PKU-MUHAMMADIYAH-BBS - Home</title>
     <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "LKSA PKU Muhammadiyah Bobotsari",
-  "alternateName": ["LKSA PKU BBS", "LKSA Muhammadiyah Bobotsari"],
-  "url": "https://iam-leviathan.github.io/lksa-pku-muhammadiyah-bbs/"
-}
-</script>
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "LKSA PKU Muhammadiyah Bobotsari",
+      "alternateName": ["LKSA PKU BBS", "LKSA Muhammadiyah Bobotsari"],
+      "url": "https://iam-leviathan.github.io/lksa-pku-muhammadiyah-bbs/"
+    }
+    </script>
     <link rel="icon" type="image/jpeg" href="logo.jpg">
-<link rel="apple-touch-icon" href="logo.jpg">
+    <link rel="apple-touch-icon" href="logo.jpg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -30,7 +30,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            z-index: 9999;
+            z-index: 100000;
             transition: opacity 0.5s ease, visibility 0.5s ease;
         }
 
@@ -66,31 +66,31 @@
             background-attachment: fixed;
             color: #333;
             line-height: 1.6;
-            padding-top: 85px;
+            padding-top: 100px; /* Jarak pas agar konten awal panti tidak amblas ke belakang navbar */
             position: relative;
             overflow-x: hidden;
-            perspective: 1000px; /* Memberikan kedalaman ruang 3D ke seluruh dokumen */
+            perspective: 1000px;
         }
-        /* Pengaturan teks sambutan agar rapi seperti website UMY */
-.sambutan-text {
-    text-align: justify;       /* Membuat teks rata kanan-kiri */
-    text-justify: inter-word;  /* Mengatur spasi antar kata agar lebih natural saat di-justify */
-    line-height: 1.8;          /* Memberikan jarak antar baris kalimat agar nyaman dibaca */
-    margin-bottom: 20px;       /* Memberikan jarak atau jeda antar paragraf */
-    color: #f5f5f5;            /* Warna teks putih/abu terang agar kontras dengan background hijau */
-    font-size: 1rem;
-}
 
-/* Opsional: Jika Anda ingin tulisan salam pembuka & penutup terpisah dan lebih tegas */
-.salam-text {
-    font-weight: 500;
-    margin-bottom: 15px;
-    margin-top: 15px;
-    display: block;
-    color: #ffffff;
-}
+        /* Pengaturan teks sambutan */
+        .sambutan-text {
+            text-align: justify;
+            text-justify: inter-word;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: #f5f5f5;
+            font-size: 1rem;
+        }
 
-        /* Elemen Dekoratif Mengambang (Efek Ruang / Multidimensi Parallax) */
+        .salam-text {
+            font-weight: 500;
+            margin-bottom: 15px;
+            margin-top: 15px;
+            display: block;
+            color: #ffffff;
+        }
+
+        /* Elemen Dekoratif Mengambang */
         .bg-shape {
             position: fixed;
             border-radius: 50%;
@@ -117,18 +117,18 @@
             z-index: 2;
         }
         
-        /* Nav Bar Utama */
+        /* Nav Bar Utama (Perbaikan: Warna dibuat padat & z-index dinaikkan) */
         nav { 
             position: fixed; 
             top: 0; 
             left: 0; 
             width: 100%; 
-            background: rgba(255, 255, 255, 0.1); 
+            background: rgba(11, 81, 57, 0.95); /* Hijau gelap solid anti-tembus pandang */
             backdrop-filter: blur(20px); 
             -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.15); 
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); 
-            z-index: 1000; 
+            border-bottom: 2px solid rgba(255, 255, 255, 0.15); 
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2); 
+            z-index: 99999; /* Di atas segalanya */
         }
 
         .nav-container { 
@@ -138,7 +138,7 @@
             display: flex; 
             justify-content: space-between; 
             align-items: center; 
-            padding: 10px 30px; 
+            padding: 15px 30px; 
             position: relative; 
         }
 
@@ -171,7 +171,7 @@
             top: 100%; 
             left: 0; 
             width: 100%; 
-            background: rgba(11, 120, 110, 0.98); 
+            background: rgba(11, 81, 57, 0.98); 
             backdrop-filter: blur(20px); 
             -webkit-backdrop-filter: blur(20px);
             max-height: 0; 
@@ -184,7 +184,7 @@
         .nav-menu li { text-align: center; }
         .nav-menu a { display: block; padding: 12px 0; text-decoration: none; color: #ffffff; font-weight: 500; cursor: pointer; }
         
-        /* CSS DROPDOWN UTAMA (DENGAN ANIMASI MELUNCUR DI LAPTOP) */
+        /* CSS DROPDOWN UTAMA */
         .dropdown { position: relative; }
 
         .dropdown-menu {
@@ -201,7 +201,7 @@
             opacity: 0;
             visibility: hidden;
             transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
-            z-index: 9999 !important;
+            z-index: 99999 !important;
         }
 
         .dropdown:hover .dropdown-menu {
@@ -275,8 +275,9 @@
             .dropdown-menu li a:hover { background-color: rgba(255, 255, 255, 0.2) !important; }
         }
 
-        /* INTERAKSI KARTU MULTI-DIMENSI (INTERACTIVE 4D GLASSMORPHISM) */
+        /* INTERAKSI KARTU MULTI-DIMENSI */
         .card-3d {
+            position: relative;
             background: rgba(255, 255, 255, 0.13);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
@@ -285,12 +286,11 @@
             padding: 40px 30px;
             margin-bottom: 30px;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-            transform-style: preserve-3d; /* Wajib untuk kedalaman sumbu Z kartu */
+            transform-style: preserve-3d;
             backface-visibility: hidden;
             transition: transform 0.15s ease-out, box-shadow 0.3s ease;
         }
 
-        /* Pencahayaan Senter Menyorot (Glow Spot) pada Kartu */
         .card-3d::before {
             content: '';
             position: absolute;
@@ -304,17 +304,16 @@
         .card-3d h1, .card-3d h2 {
             color: #ffffff;
             text-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            transform: translateZ(50px); /* Menjorok keluar mendekati mata user */
+            transform: translateZ(50px);
             transition: transform 0.3s ease;
         }
 
         .card-3d p {
             color: #f7f7f7;
-            transform: translateZ(30px); /* Teks deskripsi melayang di bawah judul */
+            transform: translateZ(30px);
             transition: transform 0.3s ease;
         }
 
-        /* Animasi Kemunculan Pertama Kali */
         header.card-3d { animation: entry4D 1s cubic-bezier(0.19, 1, 0.22, 1) both; }
         section.card-3d { animation: entry4D 1.2s cubic-bezier(0.19, 1, 0.22, 1) both; }
 
@@ -323,7 +322,6 @@
             to { opacity: 1; transform: translateY(0) rotateX(0deg) scale(1); }
         }
 
-        /* Efek Tombol Sosial Media Berdimensi Tinggi */
         .social-btn {
             display: inline-block;
             padding: 12px 28px;
@@ -357,18 +355,64 @@
         .social-btn:hover { transform: translateZ(40px) scale(1.08) translateY(-3px); box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
 
         footer { text-align: center; padding: 40px 0; color: #ffffff; font-size: 0.9rem; opacity: 0.7; }
+
+        /* Style Tabel Biodata */
+        .bio-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            transform: translateZ(20px);
+        }
+        .bio-table tr {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        .bio-table td {
+            padding: 12px 15px;
+            color: #ffffff;
+            vertical-align: top;
+        }
+        .bio-table td:first-child {
+            font-weight: 600;
+            width: 30%;
+            color: #38ef7d;
+        }
+        .bio-text {
+            text-align: justify;
+            text-justify: inter-word;
+            line-height: 1.8;
+            color: #f5f5f5;
+            margin-bottom: 15px;
+            transform: translateZ(15px);
+        }
+        .bio-sub-title {
+            color: #38ef7d;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            transform: translateZ(20px);
+        }
+        .bio-list {
+            color: #f5f5f5;
+            padding-left: 20px;
+            line-height: 1.8;
+            text-align: justify;
+            transform: translateZ(15px);
+        }
+        .bio-list li {
+            margin-bottom: 8px;
+        }
     </style>
 </head>
 <body>
 
     <div class="bg-shape shape-1"></div>
     <div class="bg-shape shape-2"></div>
-    <div class="bg-shape shape-3"></div>
+    <div class="bg-shape shape-3</div>
 
     <div class="loader-wrapper" id="loaderWrapper">
         <div class="loader"></div>
     </div>
-<nav>
+
+    <nav>
         <div class="nav-container">
             <a href="index.html" class="logo">
                 <img src="logo.jpg" alt="Logo LKSA" class="logo-img">
@@ -379,7 +423,6 @@
             </button>
             <ul class="nav-menu" id="navMenu">
                 <li><a href="index.html" class="active">Home</a></li>
-                
                 <li class="dropdown">
                     <a href="javascript:void(0)" class="dropdown-toggle" id="dropdownBtn">Kegiatan ▾</a>
                     <ul class="dropdown-menu" id="dropdownMenu">
@@ -391,7 +434,6 @@
                         <li><a href="zikir-pagi-petang.html">Zikir Pagi & Petang</a></li>
                     </ul>
                 </li>
-                
                 <li><a href="peraturan.html">Peraturan</a></li>
                 <li><a href="donasi.html">Donasi</a></li>
             </ul>
@@ -401,126 +443,73 @@
     <div class="container">
         
         <header class="card-3d">
-            <h1 style="font-size: 2.5rem; margin-bottom: 10px;">Selamat Datang 👋, Di LKSA PKU MUHAMMADIYAH BOBBOTSARI</h1>
+            <h1 style="font-size: 2.5rem; margin-bottom: 10px;">Selamat Datang 👋, Di LKSA PKU MUHAMMADIYAH BOBOTSARI</h1>
             <p style="font-weight: 500;">Jl. kenduruan, No.39, Bobotsari, Kec. Bobotsari, Kab. Purbalingga</p>
         </header>
 
-        <style>
-    /* Tambahan style khusus untuk tabel biodata agar serasi dengan tema kaca */
-    .bio-table {
-        width: 100%;
-        border-collapse: collapse;
-        margin: 20px 0;
-        transform: translateZ(20px);
-    }
-    .bio-table tr {
-        border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-    }
-    .bio-table td {
-        padding: 12px 15px;
-        color: #ffffff;
-        vertical-align: top;
-    }
-    .bio-table td:first-child {
-        font-weight: 600;
-        width: 30%;
-        color: #38ef7d; /* Warna hijau neon khas tema Anda */
-    }
-    .bio-text {
-        text-align: justify;
-        text-justify: inter-word;
-        line-height: 1.8;
-        color: #f5f5f5;
-        margin-bottom: 15px;
-        transform: translateZ(15px);
-    }
-    .bio-sub-title {
-        color: #38ef7d;
-        margin-top: 20px;
-        margin-bottom: 10px;
-        transform: translateZ(20px);
-    }
-    .bio-list {
-        color: #f5f5f5;
-        padding-left: 20px;
-        line-height: 1.8;
-        text-align: justify;
-        transform: translateZ(15px);
-    }
-    .bio-list li {
-        margin-bottom: 8px;
-    }
-</style>
+        <section class="card-3d" style="margin-top: 40px;">
+            <h2>Sekilas Profil LKSA PKU Muhammadiyah Bobotsari 🏛️</h2>
+            <p class="intro-text" style="color: #e8f8f5; font-size: 0.95rem; margin-bottom: 10px;">Mengenal lebih dekat sejarah singkat, visi, dan komitmen pelayanan sosial kemanusiaan kami.</p>
+            
+            <table class="bio-table">
+                <tr>
+                    <td>Nama Lembaga</td>
+                    <td>Lembaga Kesejahteraan Sosial Anak (LKSA) PKU Muhammadiyah Bobotsari</td>
+                </tr>
+                <tr>
+                    <td>Tahun Berdiri</td>
+                    <td>2010</td>
+                </tr>
+                <tr>
+                    <td>Afiliasi</td>
+                    <td>Persyarikatan Muhammadiyah</td>
+                </tr>
+                <tr>
+                    <td>Jenis Layanan</td>
+                    <td>Sosial, Pendidikan, dan Pengasuhan Anak (Yatim, Piatu, & Dhuafa)</td>
+                </tr>
+                <tr>
+                    <td>Visi Utama</td>
+                    <td>Menjadi pusat pengasuhan anak mandiri yang unggul dalam moralitas, akademik, keislaman, serta berjiwa wirausaha (entrepreneur).</td>
+                </tr>
+            </table>
 
-<section class="card-3d" style="margin-top: 40px;">
-    <h2>Sekilas Profil LKSA PKU Muhammadiyah Bobotsari 🏛️</h2>
-    <p class="intro-text">Mengenal lebih dekat sejarah singkat, visi, dan komitmen pelayanan sosial kemanusiaan kami.</p>
-    
-    <table class="bio-table">
-        <tr>
-            <td>Nama Lembaga</td>
-            <td>Lembaga Kesejahteraan Sosial Anak (LKSA) PKU Muhammadiyah Bobotsari</td>
-        </tr>
-        <tr>
-            <td>Tahun Berdiri</td>
-            <td>2010</td>
-        </tr>
-        <tr>
-            <td>Afiliasi</td>
-            <td>Persyarikatan Muhammadiyah</td>
-        </tr>
-        <tr>
-            <td>Jenis Layanan</td>
-            <td>Sosial, Pendidikan, dan Pengasuhan Anak (Yatim, Piatu, &amp; Dhuafa)</td>
-        </tr>
-        <tr>
-            <td>Visi Utama</td>
-            <td>Menjadi pusat pengasuhan anak mandiri yang unggul dalam moralitas, akademik, keislaman, serta berjiwa wirausaha (entrepreneur).</td>
-        </tr>
-    </table>
+            <h3 class="bio-sub-title">Tentang Lembaga</h3>
+            <p class="bio-text">
+                LKSA PKU Muhammadiyah Bobotsari resmi didirikan pada <strong>tahun 2010</strong> sebagai wujud nyata dari kepedulian sosial dan dakwah amar makruf nahi mungkar di bawah naungan Persyarikatan Muhammadiyah. Lembaga ini berfokus penuh pada pelayanan kesejahteraan, pengasuhan, serta penjaminan mutu pendidikan bagi anak-anak asuh agar mereka dapat tumbuh menjadi pribadi yang mandiri, berdaya saing, dan berakhlakul karimah.
+            </p>
 
-    <h3 class="bio-sub-title">Tentang Lembaga</h3>
-    <p class="bio-text">
-        LKSA PKU Muhammadiyah Bobotsari resmi didirikan pada <strong>tahun 2010</strong> sebagai wujud nyata dari kepedulian sosial dan dakwah amar makruf nahi mungkar di bawah naungan Persyarikatan Muhammadiyah. Lembaga ini berfokus penuh pada pelayanan kesejahteraan, pengasuhan, serta penjaminan mutu pendidikan bagi anak-anak asuh agar mereka dapat tumbuh menjadi pribadi yang mandiri, berdaya saing, dan berakhlakul karimah.
-    </p>
-
-    <h3 class="bio-sub-title">Program Unggulan Pengasuhan</h3>
-    <ul class="bio-list">
-        <li><strong>Pembinaan Keagamaan Intensif:</strong> Setoran hafalan Al-Qur'an (Tahfidz), Ngaji Bareng, serta pembiasaan amalan sunnah lewat Zikir Pagi &amp; Petang.</li>
-        <li><strong>Pengembangan Akademik:</strong> Pendampingan belajar intensif di asrama serta pengadaan kelas tambahan khusus seperti les matematika.</li>
-        <li><strong>Kemandirian &amp; Sosial:</strong> Pelatihan keterampilan dasar hidup, pembentukan karakter berjiwa wirausaha (entrepreneurship), serta pembiasaan bersosialisasi lewat kegiatan Ahad Pagi bersama masyarakat.</li>
-    </ul>
-</section>
+            <h3 class="bio-sub-title">Program Unggulan Pengasuhan</h3>
+            <ul class="bio-list">
+                <li><strong>Pembinaan Keagamaan Intensif:</strong> Setoran hafalan Al-Qur'an (Tahfidz), Ngaji Bareng, serta pembiasaan amalan sunnah lewat Zikir Pagi & Petang.</li>
+                <li><strong>Pengembangan Akademik:</strong> Pendampingan belajar intensif di asrama serta pengadaan kelas tambahan khusus seperti les matematika.</li>
+                <li><strong>Kemandirian & Sosial:</strong> Pelatihan keterampilan dasar hidup, pembentukan karakter berjiwa wirausaha (entrepreneurship), serta pembiasaan bersosialisasi lewat kegiatan Ahad Pagi bersama masyarakat.</li>
+            </ul>
+        </section>
 
         <section class="card-3d">
-    <h2>Sambutan Official Website LKSA PKU Muhammadiyah Bobotsari</h2>
-    
-    <span class="salam-text">Assalamualaikum wr wb</span>
-    
-    <p class="sambutan-text">
-        Selamat datang di official website LKSA PKU Muhammadiyah Bobotsari. Wadah informasi digital ini dihadirkan khusus untuk memberikan transparansi dan informasi mendalam bagi para donatur, orang tua/wali asuh, jemaah, serta seluruh pemangku kepentingan mengenai aktivitas keagamaan, fasilitas asrama, program pengabdian, hingga dinamika kehidupan sehari-hari para santri di lembaga kami.
-    </p>
-    
-    <p class="sambutan-text">
-        LKSA PKU Muhammadiyah Bobotsari kini tengah bergerak maju menuju Pusat Pengasuhan Anak Mandiri yang Berjiwa Entrepreneur (Wirausaha) dan Unggul di Tingkat Regional. Sejalan dengan visi besar tersebut, kami berkomitmen penuh untuk memperluas kolaborasi dengan berbagai mitra kebaikan guna menciptakan generasi muda yang mandiri, berakhlak mulia, dan siap menghadapi tantangan zaman. Kami mendorong pemanfaatan teknologi positif dalam proses belajar-mengajar, sekaligus mengintegrasikan nilai-nilai Islam ke dalam setiap helai napas kehidupan di asrama.
-    </p>
-    
-    <p class="sambutan-text">
-        Untuk mencapai hal itu, kami memberikan perhatian besar pada peningkatan kualitas pengasuhan dan pengajaran melalui pembiasaan amalan sunnah, seperti Zikir Pagi & Petang, setoran hafalan Al-Qur'an, hingga pengayaan akademik seperti les matematika. Kami percaya bahwa kolaborasi yang kuat antara civitas LKSA, para alumni, donatur, dan masyarakat luas adalah kunci utama untuk mewujudkan visi lembaga yang unggul dalam moralitas, kemandirian, dan kepedulian sosial.
-    </p>
+            <h2>Sambutan Official Website LKSA PKU Muhammadiyah Bobotsari</h2>
+            <span class="salam-text">Assalamualaikum wr wb</span>
+            <p class="sambutan-text">
+                Selamat datang di official website LKSA PKU Muhammadiyah Bobotsari. Wadah informasi digital ini dihadirkan khusus untuk memberikan transparansi dan informasi mendalam bagi para donatur, orang tua/wali asuh, jemaah, serta seluruh pemangku kepentingan mengenai aktivitas keagamaan, fasilitas asrama, program pengabdian, hingga dinamika kehidupan sehari-hari para santri di lembaga kami.
+            </p>
+            <p class="sambutan-text">
+                LKSA PKU Muhammadiyah Bobotsari kini tengah bergerak maju menuju Pusat Pengasuhan Anak Mandiri yang Berjiwa Entrepreneur (Wirausaha) dan Unggul di Tingkat Regional. Sejalan dengan visi besar tersebut, kami berkomitmen penuh untuk memperluas kolaborasi dengan berbagai mitra kebaikan guna menciptakan generasi muda yang mandiri, berakhlak mulia, dan siap menghadapi tantangan zaman. Kami mendorong pemanfaatan teknologi positif dalam proses belajar-mengajar, sekaligus mengintegrasikan nilai-nilai Islam ke dalam setiap helai napas kehidupan di asrama.
+            </p>
+            <p class="sambutan-text">
+                Untuk mencapai hal itu, kami memberikan perhatian besar pada peningkatan kualitas pengasuhan dan pengajaran melalui pembiasaan amalan sunnah, seperti Zikir Pagi & Petang, setoran hafalan Al-Qur'an, hingga pengayaan akademik seperti les matematika. Kami percaya bahwa kolaborasi yang kuat antara civitas LKSA, para alumni, donatur, dan masyarakat luas adalah kunci utama untuk mewujudkan visi lembaga yang unggul dalam moralitas, kemandirian, dan kepedulian sosial.
+            </p>
+            <span class="salam-text">Salam Bahagia dan sehat selalu untuk kita semua</span>
+        </section>
 
-    <span class="salam-text">Salam Bahagia dan sehat selalu untuk kita semua</span>
-</section>
-      <section class="card-3d" style="margin-top: 30px;">
+        <section class="card-3d" style="margin-top: 30px;">
             <h2>Sambutan Ketua Lembaga 👤</h2>
             <div style="display: flex; flex-direction: column; gap: 30px; margin-top: 25px; align-items: center;">
-                
                 <div style="flex: 1; max-width: 250px; text-align: center; transform: translateZ(30px);">
                     <img src="ketua.jpg" alt="Foto Ketua LKSA" style="width: 100%; border-radius: 12px; box-shadow: 0 10px 20px rgba(0,0,0,0.2); border: 2px solid rgba(255,255,255,0.3);">
                     <h4 style="color: #ffffff; margin-top: 15px; font-size: 1.1rem;">Nama Ketua, M.Pd.</h4>
                     <p style="color: #d1f2eb; font-size: 0.85rem;">Ketua LKSA PKU Muhammadiyah</p>
                 </div>
-
                 <div style="flex: 2; color: #fdfdfd; font-size: 0.95rem; text-align: justify; transform: translateZ(20px);">
                     <p style="margin-bottom: 15px; font-style: italic; font-weight: 500;">"Assalamualaikum Warahmatullahi Wabarakatuh,"</p>
                     <p style="margin-bottom: 15px;">Segala puji bagi Allah SWT yang telah memberikan amanah kepada kami untuk membimbing dan mengasuh generasi penerus bangsa di LKSA PKU Muhammadiyah Bobotsari. Melalui wadah digital ini, kami berkomitmen untuk menyajikan transparansi informasi serta membuka pintu kebaikan selebar-lebarnya bagi para donatur dan masyarakat luas.</p>
@@ -533,7 +522,6 @@
         <section class="card-3d" style="margin-top: 30px;">
             <h2>Data & Kondisi Santri 📊</h2>
             <p style="color: #e8f8f5; font-size: 0.9rem; margin-bottom: 25px; transform: translateZ(20px);">Berikut adalah gambaran riil kuantitas dan jenis kelamin anak asuh saat ini:</p>
-            
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 15px; transform: translateZ(30px);">
                 <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 10px; text-align: center; border: 1px solid rgba(255,255,255,0.1);">
                     <span style="font-size: 1.8rem; font-weight: 700; color: #ffffff; display: block;">42</span>
@@ -553,15 +541,12 @@
         <section class="card-3d" style="margin-top: 30px; margin-bottom: 20px;">
             <h2>Hubungi Kami & Lokasi 📍</h2>
             <div style="display: flex; flex-direction: column; gap: 25px; margin-top: 25px; transform: translateZ(20px);">
-                
                 <div style="color: #ffffff;">
                     <p style="font-size: 0.95rem; margin-bottom: 15px;">Jika Anda ingin bersilaturahmi, menyalurkan bantuan langsung, atau menanyakan informasi kemitraan, silakan hubungi layanan pelanggan kami:</p>
-                    
                     <a href="https://wa.me/6281234567890" target="_blank" style="display: inline-flex; align-items: center; background: #25D366; color: white; text-decoration: none; padding: 10px 20px; border-radius: 30px; font-weight: 600; font-size: 0.9rem; box-shadow: 0 4px 15px rgba(37,211,102,0.4); transition: 0.3s;">
                         💬 Chat WhatsApp Admin
                     </a>
                 </div>
-
                 <div style="width: 100%; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.2); border: 2px solid rgba(255,255,255,0.2); transform: translateZ(30px);">
                     <iframe 
                         src="https://maps.google.com/maps?q=-7.301452564029486,109.36899762281104&t=&z=17&ie=UTF8&iwloc=&output=embed" 
@@ -583,23 +568,46 @@
         </div>
 
         <footer>
-            <p>&copy; 2026 LKSA PKU Muhammadiyah Bobotsari. Semua Hak Cipta Dilindungi.</p>
+            <p>© 2026 LKSA PKU Muhammadiyah Bobotsari. Semua Hak Cipta Dilindungi.</p>
         </footer>
     </div>
 
+    <button id="btnScrollTop" onclick="scrollToTop()" style="
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 50px;
+        height: 50px;
+        background-color: #25D366;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 100001; /* Harus lebih tinggi dari navbar & loader */
+        box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        transition: all 0.3s ease;
+    " onmouseover="this.style.transform='scale(1.1)'; this.style.backgroundColor='#1ebd58';" 
+      onmouseout="this.style.transform='scale(1)'; this.style.backgroundColor='#25D366';">
+        ↑
+    </button>
+
     <script>
-        // 1. Fungsi Menghilangkan Loading Screen
+        // 1. Loader Screen Hiding
         window.addEventListener('load', () => {
             const loader = document.getElementById('loaderWrapper');
             loader.classList.add('hidden');
         });
 
-        // 2. Tombol Hamburger Menu (Mode HP)
+        // 2. Hamburger Menu Mobile Toggle
         document.getElementById('menuToggle').addEventListener('click', () => {
             document.getElementById('navMenu').classList.toggle('aktif');
         });
 
-        // 3. Logika Klik Dropdown Kegiatan
+        // 3. Dropdown Menu Kegiatan Logic
         const dropdownBtn = document.getElementById('dropdownBtn');
         const dropdownMenu = document.getElementById('dropdownMenu');
 
@@ -614,22 +622,24 @@
             }
         });
 
-        // ==========================================================================
-        // SCRIPT LOGIKA KARTU MULTI-DIMENSI (INTERACTIVE 3D TILT & GLOW PATTERN)
-        // ==========================================================================
-        const cards = document.querySelectorAll('.card-3d');
+        // 4. Smooth Scroll ke Atas
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
 
+        // 5. Efek Gerak Kartu 3D Perspektif
+        const cards = document.querySelectorAll('.card-3d');
         cards.forEach(card => {
             card.addEventListener('mousemove', (e) => {
                 const rect = card.getBoundingClientRect();
-                
-                // Menghitung koordinat kursor di dalam area kartu untuk efek sorot lampu (glow)
                 const x = e.clientX - rect.left;
                 const y = e.clientY - rect.top;
                 card.style.setProperty('--mouse-x', `${x}px`);
                 card.style.setProperty('--mouse-y', `${y}px`);
 
-                // Mengukur rasio kemiringan dinamis berdasarkan titik tengah kartu
                 const cardWidth = rect.width;
                 const cardHeight = rect.height;
                 const centerX = rect.left + cardWidth / 2;
@@ -637,78 +647,16 @@
                 const mouseX = e.clientX - centerX;
                 const mouseY = e.clientY - centerY;
                 
-                // Membatasi sudut rotasi maksimal agar tidak terlalu tajam (max 10 derajat)
                 const rotateX = (-10 * (mouseY / (cardHeight / 2))).toFixed(2);
                 const rotateY = (10 * (mouseX / (cardWidth / 2))).toFixed(2);
 
                 card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
             });
 
-            // Mengembalikan kartu ke posisi semula saat kursor keluar
             card.addEventListener('mouseleave', () => {
                 card.style.transform = 'rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
             });
         });
     </script>
-
-<script>
-    // Ambil elemen tombol
-    const myButton = document.getElementById("btnScrollTop");
-
-    // Ketika pengguna men-scroll halaman, jalankan fungsi ini
-    window.onscroll = function() {
-        scrollFunction();
-    };
-
-    function scrollFunction() {
-        // Tombol muncul jika halaman di-scroll lebih dari 300px
-        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-            myButton.style.display = "flex";
-        } else {
-            myButton.style.display = "none";
-        }
-    }
-
-    // Fungsi untuk membuat efek scroll halus (smooth) ke atas
-    function scrollToTop() {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth' /* Membuat efek scroll meluncur halus */
-        });
-    }
-</script>
-
-    <button id="btnScrollTop" onclick="scrollToTop()" style="
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    width: 50px;
-    height: 50px;
-    background-color: #25D366; /* Warna hijau WhatsApp */
-    color: white;
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 1.5rem;
-    display: flex; /* Langsung tampil dari awal */
-    align-items: center;
-    justify-content: center;
-    z-index: 99999;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    transition: all 0.3s ease;
-" onmouseover="this.style.transform='scale(1.1)'; this.style.backgroundColor='#1ebd58';" 
-  onmouseout="this.style.transform='scale(1)'; this.style.backgroundColor='#25D366';">
-    ↑
-</button>
-
-<script>
-    // Fungsi untuk membuat efek scroll halus (smooth) ke atas
-    function scrollToTop() {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth' /* Membuat efek scroll meluncur halus */
-        });
-    }
-</script>
 </body>
 </html>
