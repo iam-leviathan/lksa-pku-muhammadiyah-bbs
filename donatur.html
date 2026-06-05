@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donatur - LKSA PKU Muhammadiyah Bobotsari</title>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "LKSA PKU Muhammadiyah Bobotsari",
+      "alternateName": ["LKSA PKU BBS", "LKSA Muhammadiyah Bobotsari"],
+      "url": "https://iam-leviathan.github.io/lksa-pku-muhammadiyah-bbs/"
+    }
+    </script>
+    <link rel="icon" type="image/jpeg" href="logo.jpg">
+    <link rel="apple-touch-icon" href="logo.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Styling Layar Loading */
+        .loader-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #11998e, #38ef7d);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 100000;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .loader {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: #ffffff;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .loader-wrapper.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        /* Base Styles & Ruang Perspektif 3D */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0f4c43, #1f7041);
+            background-attachment: fixed;
+            color: #333;
+            line-height: 1.6;
+            padding-top: 90px;
+            position: relative;
+            overflow-x: hidden;
+            perspective: 1000px;
+        }
+
+        /* Elemen Dekoratif Mengambang */
+        .bg-shape {
+            position: fixed;
+            border-radius: 50%;
+            background: linear-gradient(45deg, rgba(255,255,255,0.15), rgba(56,239,125,0.2));
+            filter: blur(10px);
+            z-index: -1;
+            pointer-events: none;
+        }
+        .shape-1 { width: 300px; height: 300px; top: -50px; left: -50px; animation: float4D 20s infinite linear; }
+        .shape-2 { width: 400px; height: 400px; bottom: -100px; right: -100px; animation: float4D 25s infinite linear reverse; }
+        .shape-3 { width: 150px; height: 150px; top: 40%; right: 15%; animation: float4D 15s infinite ease-in-out; }
+
+        @keyframes float4D {
+            0% { transform: translateY(0) scale(1) rotate(0deg); opacity: 0.6; }
+            50% { transform: translateY(-40px) scale(1.15) rotate(180deg); opacity: 0.9; filter: blur(5px); }
+            100% { transform: translateY(0) scale(1) rotate(360deg); opacity: 0.6; }
+        }
+        
+        .container { 
+            width: 100%;
+            max-width: 900px; 
+            margin: 0 auto; 
+            padding: 15px; 
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* Nav Bar Utama */
+        nav { 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            background: rgba(11, 81, 57, 0.95); 
+            backdrop-filter: blur(20px); 
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 2px solid rgba(255, 255, 255, 0.15); 
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2); 
+            z-index: 99999; 
+        }
+
+        .nav-container { 
+            width: 100%; 
+            max-width: 100%; 
+            margin: 0; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            padding: 15px 20px; 
+            position: relative; 
+        }
+
+        .logo { 
+            display: flex;
+            align-items: center;
+            gap: 10px; 
+            font-weight: bold; 
+            font-size: 0.95rem; 
+            color: #ffffff; 
+            text-decoration: none; 
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2); 
+            max-width: 80%;
+        }
+
+        .logo-img {
+            height: 35px; 
+            width: auto;  
+            object-fit: contain;
+        }
+        
+        .menu-toggle { display: flex; flex-direction: column; justify-content: space-between; width: 26px; height: 18px; background: transparent; border: none; cursor: pointer; }
+        .menu-toggle span { display: block; height: 3px; width: 100%; background-color: #ffffff; border-radius: 3px; transition: 0.3s; }
+        
+        /* Nav Menu Utama */
+        .nav-menu { 
+            display: flex; 
+            flex-direction: column; 
+            list-style: none; 
+            position: absolute; 
+            top: 100%; 
+            left: 0; 
+            width: 100%; 
+            background: rgba(11, 81, 57, 0.98); 
+            backdrop-filter: blur(20px); 
+            -webkit-backdrop-filter: blur(20px);
+            max-height: 0; 
+            opacity: 0; 
+            overflow: visible !important; 
+            transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out; 
+        }
+        
+        .nav-menu.aktif { max-height: 600px; opacity: 1; padding: 10px 0; border-top: 1px solid rgba(255, 255, 255, 0.2); }
+        .nav-menu li { text-align: center; }
+        .nav-menu a { display: block; padding: 12px 0; text-decoration: none; color: #ffffff; font-weight: 500; cursor: pointer; }
+        
+        /* Dropdown CSS */
+        .dropdown { position: relative; }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-10px); 
+            background: rgba(255, 255, 255, 0.98) !important;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            list-style: none;
+            padding: 10px 0;
+            min-width: 220px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+            z-index: 99999 !important;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            opacity: 1 !important;
+            visibility: visible !important;
+            transform: translateX(-50%) translateY(10px) !important; 
+        }
+
+        .dropdown-menu.aktif-click {
+            display: block !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+            transform: translateX(-50%) translateY(10px) !important;
+        }
+
+        .dropdown-menu li { text-align: left !important; }
+        .dropdown-menu li a {
+            display: block !important;
+            padding: 10px 20px !important;
+            color: #333333 !important;
+            font-size: 0.9rem !important;
+            font-weight: 500 !important;
+            background: transparent !important;
+            border-radius: 0 !important;
+            text-align: left !important;
+            transition: background 0.2s;
+        }
+
+        .dropdown-menu li a:hover {
+            background-color: #11998e !important;
+            color: #ffffff !important;
+        }
+
+        /* RESPONSIVE DESKTOP */
+        @media (min-width: 768px) {
+            body { padding-top: 100px; }
+            .container { padding: 20px; }
+            .logo { font-size: 1.1rem; }
+            .logo-img { height: 40px; }
+            .menu-toggle { display: none; }
+            .nav-menu { 
+                position: static; 
+                display: flex; 
+                flex-direction: row; 
+                width: auto; 
+                max-height: none !important; 
+                opacity: 1; 
+                background: transparent; 
+                backdrop-filter: none; 
+                -webkit-backdrop-filter: none; 
+                gap: 20px; 
+                overflow: visible !important; 
+            }
+            .nav-menu.aktif { padding: 0; border-top: none; }
+            .nav-menu a { padding: 5px 12px; border-radius: 20px; transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+            .nav-menu a:hover, .nav-menu a.active { color: #11998e; background-color: #ffffff; transform: scale(1.05); }
+        }
+
+        /* RESPONSIVE MOBILE */
+        @media (max-width: 767px) {
+            .dropdown-menu {
+                position: static !important;
+                box-shadow: none !important;
+                background: rgba(255, 255, 255, 0.1) !important;
+                border-radius: 0;
+                transform: none !important;
+                min-width: 100% !important;
+                padding: 0 !important;
+                opacity: 0;
+                display: none;
+            }
+            .dropdown-menu.aktif-click { display: block !important; opacity: 1 !important; visibility: visible !important; }
+            .dropdown:hover .dropdown-menu { transform: none !important; }
+            .dropdown-menu li a { color: #ffffff !important; text-align: center !important; padding: 12px 0 !important; }
+            .dropdown-menu li a:hover { background-color: rgba(255, 255, 255, 0.2) !important; }
+        }
+
+        /* KARTU 3D RESPONSIVE */
+        .card-3d {
+            position: relative;
+            background: rgba(255, 255, 255, 0.13);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            padding: 20px 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            transform-style: preserve-3d;
+            backface-visibility: hidden;
+            transition: transform 0.15s ease-out, box-shadow 0.3s ease;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        @media (min-width: 768px) {
+            .card-3d { padding: 40px 30px; margin-bottom: 30px; }
+        }
+
+        .card-3d::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            border-radius: 16px;
+            background: radial-gradient(800px circle at var(--mouse-x, 0px) var(--mouse-y, 0px), rgba(255,255,255,0.18), transparent 40%);
+            z-index: 3;
+            pointer-events: none;
+        }
+
+        /* Skala Otomatis Ukuran Judul */
+        .main-title { font-size: 1.5rem; margin-bottom: 12px; line-height: 1.3; }
+        .sub-title { font-size: 1.2rem; margin-bottom: 15px; color: #ffffff; }
+
+        @media (min-width: 768px) {
+            .main-title { font-size: 2.5rem; margin-bottom: 10px; }
+            .sub-title { font-size: 1.8rem; }
+        }
+
+        .card-3d h1, .card-3d h2 {
+            text-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transform: translateZ(50px);
+        }
+
+        .card-3d p {
+            color: #f7f7f7;
+            transform: translateZ(30px);
+        }
+
+        /* Teks Doa Kebaikan */
+        .doa-box {
+            background: rgba(255, 255, 255, 0.08);
+            border-left: 4px solid #38ef7d;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 15px;
+            text-align: center;
+            transform: translateZ(25px);
+        }
+
+        .arabic-text {
+            font-family: 'Amiri', serif;
+            font-size: 1.8rem;
+            color: #ffffff;
+            margin-bottom: 10px;
+            direction: rtl;
+            line-height: 2.2;
+        }
+
+        .latin-text {
+            font-style: italic;
+            color: #38ef7d;
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+        }
+
+        .arti-text {
+            color: #e0e0e0;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* Styling Tabel Riwayat Donatur */
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+            margin-top: 20px;
+            border-radius: 12px;
+            background: rgba(0, 0, 0, 0.2);
+            box-shadow: inset 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .donatur-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            color: #ffffff;
+            min-width: 600px;
+        }
+
+        .donatur-table th, .donatur-table td {
+            padding: 14px 18px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .donatur-table th {
+            background: rgba(11, 81, 57, 0.7);
+            color: #38ef7d;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+        }
+
+        .donatur-table tr:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        /* Badge Status */
+        .badge-dana {
+            background-color: rgba(56, 239, 125, 0.2);
+            color: #38ef7d;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        .badge-barang {
+            background-color: rgba(17, 153, 142, 0.3);
+            color: #5bfceb;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        /* Tombol Aksi */
+        .btn-donasi {
+            display: inline-block;
+            background: linear-gradient(135deg, #11998e, #38ef7d);
+            color: white;
+            text-decoration: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-weight: 600;
+            margin-top: 25px;
+            box-shadow: 0 5px 15px rgba(56, 239, 125, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .btn-donasi:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(56, 239, 125, 0.5);
+        }
+
+        header.card-3d { animation: entry4D 1s cubic-bezier(0.19, 1, 0.22, 1) both; }
+        section.card-3d { animation: entry4D 1.2s cubic-bezier(0.19, 1, 0.22, 1) both; }
+
+        @keyframes entry4D {
+            from { opacity: 0; transform: translateY(50px) rotateX(-15deg) scale(0.9); }
+            to { opacity: 1; transform: translateY(0) rotateX(0deg) scale(1); }
+        }
+
+        footer { text-align: center; padding: 40px 0; color: #ffffff; font-size: 0.9rem; opacity: 0.7; }
+    </style>
+</head>
+<body>
+
+    <div class="bg-shape shape-1"></div>
+    <div class="bg-shape shape-2"></div>
+    <div class="bg-shape shape-3"></div>
+
+    <div class="loader-wrapper" id="loaderWrapper">
+        <div class="loader"></div>
+    </div>
+
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="logo.jpg" alt="Logo LKSA" class="logo-img">
+                <span>LKSA PKU MUHAMMADIYAH BOBOTSARI</span>
+            </a>
+            <button class="menu-toggle" id="menuToggle">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="profil.html">Profil</a></li>
+                <li><a href="donatur.html" class="active">Donatur</a></li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropdown-toggle" id="dropdownBtn">Kegiatan ▾</a>
+                    <ul class="dropdown-menu" id="dropdownMenu">
+                        <li><a href="les-matematika.html">Les Matematika</a></li>
+                        <li><a href="setoran-hafalan.html">Setoran Hafalan</a></li>
+                        <li><a href="ngaji-bareng.html">Ngaji Bareng</a></li>
+                        <li><a href="ahad-pagi.html">Ahad Pagi</a></li>
+                        <li><a href="zikir-pagi-petang.html">Zikir Pagi & Petang</a></li>
+                    </ul>
+                </li>
+                <li><a href="peraturan.html">Peraturan</a></li>
+                <li><a href="donasi.html">Donasi</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        
+        <header class="card-3d">
+            <h1 class="main-title">Riwayat Donatur 🤝</h1>
+            <p style="font-weight: 500; font-size: 0.9rem;">Catatan ketulusan, transparansi amanah umat, serta untaian doa kebaikan bagi para muhsinin.</p>
+        </header>
+
+        <section class="card-3d">
+            <h2 class="sub-title">Doa Keberkahan untuk Para Donatur ✨</h2>
+            <p>Segenap pengurus dan seluruh santri asuh LKSA PKU Muhammadiyah Bobotsari senantiasa memanjatkan doa terbaik kepada Allah SWT atas segala kebaikan dan infak yang telah diberikan:</p>
+            
+            <div class="doa-box">
+                <div class="arabic-text">آجَرَكَ اللهُ فِيْمَا أَعْطَيْتَ، وَبَارَكَ فِيْمَا أَبْقَيْتَ وَجَعَلَهُ لَكَ طَهُوْرًا</div>
+                <div class="latin-text">"Aajarokallahu fiimaa a'toita, wa baaroka fiimaa abqoita wa ja'alahu laka thohuuron."</div>
+                <div class="arti-text">Artinya: "Semoga Allah memberikan pahala atas apa yang telah engkau berikan, memberikan keberkahan atas harta yang kau sisakan, dan menjadikannya sebagai pembersih (penyuci) bagimu."</div>
+            </div>
+            
+            <div class="doa-box" style="margin-top: 15px; border-left-color: #11998e;">
+                <div class="arabic-text">جَزَاكُمُ اللهُ خَيْرًا كَثِيْرًا</div>
+                <div class="latin-text">"Jazakumullahu khoiron katsiiro."</div>
+                <div class="arti-text">Artinya: "Semoga Allah membalas kalian dengan kebaikan yang banyak."</div>
+            </div>
+        </section>
+
+        <section class="card-3d">
+            <h2 class="sub-title">Daftar Riwayat Dukungan Masuk</h2>
+            <p>Berikut adalah catatan riwayat penyerahan donasi dari para donatur yang telah resmi kami terima dan siap disalurkan untuk operasional kegiatan serta kemandirian para santri:</p>
+            
+            <div class="table-container">
+                <table class="donatur-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 8%">No</th>
+                            <th style="width: 32%">Nama Donatur / Instansi</th>
+                            <th style="width: 20%">Bentuk Donasi</th>
+                            <th>Peruntukan / Keterangan Kebaikan</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>.....</td>
+                            <td><span class="badge-dana">.....</span></td>
+                            <td>.....</td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+
+            <p style="font-size: 0.85rem; margin-top: 15px; color: #d1f2eb; font-style: italic;">*Catatan: Riwayat di atas diperbarui secara berkala sebagai komitmen transparansi amanah umat di LKSA PKU Muhammadiyah Bobotsari.</p>
+
+            <div style="text-align: center;">
+                <a href="donasi.html" class="btn-donasi">Gabung Menjadi Mitra Kebaikan 💳</a>
+            </div>
+        </section>
+
+        <footer>
+            <p>© 2026 LKSA PKU Muhammadiyah Bobotsari. Semua Hak Cipta Dilindungi.</p>
+        </footer>
+    </div>
+
+    <script>
+        // 1. Loader Screen Hiding
+        document.addEventListener('DOMContentLoaded', () => {
+            const loader = document.getElementById('loaderWrapper');
+            if (loader) { loader.classList.add('hidden'); }
+        });
+
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('loaderWrapper');
+            if (loader && !loader.classList.contains('hidden')) { loader.classList.add('hidden'); }
+        });
+
+        // 2. Hamburger Menu Mobile Toggle
+        document.getElementById('menuToggle').addEventListener('click', () => {
+            document.getElementById('navMenu').classList.toggle('aktif');
+        });
+
+        // 3. Dropdown Menu Kegiatan Logic
+        const dropdownBtn = document.getElementById('dropdownBtn');
+        const dropdownMenu = document.getElementById('dropdownMenu');
+
+        dropdownBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            dropdownMenu.classList.toggle('aktif-click');
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!dropdownBtn.contains(e.target) && !dropdownMenu.contains(e.target)) {
+                dropdownMenu.classList.remove('aktif-click');
+            }
+        });
+
+        // 4. Efek Gerak Kartu 3D Perspektif
+        const cards = document.querySelectorAll('.card-3d');
+        if (window.innerWidth >= 768) {
+            cards.forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    card.style.setProperty('--mouse-x', `${x}px`);
+                    card.style.setProperty('--mouse-y', `${y}px`);
+
+                    const cardWidth = rect.width;
+                    const cardHeight = rect.height;
+                    const centerX = rect.left + cardWidth / 2;
+                    const centerY = rect.top + cardHeight / 2;
+                    const mouseX = e.clientX - centerX;
+                    const mouseY = e.centerY - centerY;
+                    
+                    const rotateX = (-10 * (mouseY / (cardHeight / 2))).toFixed(2);
+                    const rotateY = (10 * (mouseX / (cardWidth / 2))).toFixed(2);
+
+                    card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+                });
+            });
+        }
+    </script>
+</body>
+</html>
