@@ -362,7 +362,7 @@
             border-collapse: collapse;
             text-align: left;
             color: #ffffff;
-            min-width: 600px;
+            min-width: 700px; /* Lebar minimum disesuaikan agar kolom tanggal muat dengan lega */
         }
 
         .donatur-table th, .donatur-table td {
@@ -511,12 +511,11 @@
                     <tbody>
                         <tr>
                             <td>1</td>
-                            <td>......<td>
+                            <td>05 Juni 2026</td>
                             <td>Mba Kalysa Hilya Anggarni & Mba Catur Windiasih</td>
-                            <td><span class="badge-dana">Makanan</span></td>
-                            <td>Untuk makan malam bersama</td>
+                            <td><span class="badge-barang">Makanan</span></td>
+                            <td>Untuk makan malam bersama seluruh santri asrama</td>
                         </tr>
-                        
                     </tbody>
                 </table>
             </div>
@@ -581,7 +580,7 @@
                     const centerX = rect.left + cardWidth / 2;
                     const centerY = rect.top + cardHeight / 2;
                     const mouseX = e.clientX - centerX;
-                    const mouseY = e.centerY - centerY;
+                    const mouseY = e.clientY - centerY;
                     
                     const rotateX = (-10 * (mouseY / (cardHeight / 2))).toFixed(2);
                     const rotateY = (10 * (mouseX / (cardWidth / 2))).toFixed(2);
