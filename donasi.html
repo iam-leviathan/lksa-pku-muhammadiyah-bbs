@@ -4,9 +4,408 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LKSA-PKU-MUHAMMADIYAH-BBS - Donasi</title>
+
     <link rel="icon" type="image/jpeg" href="logo.jpg">
-<link rel="apple-touch-icon" href="logo.jpg">
+    <link rel="apple-touch-icon" href="logo.jpg">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <p class:marquee> Maaf kami belunn bisa membuka page ini....</p>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f4f8f6;
+            color: #222;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            background: #087443;
+            color: white;
+            padding: 18px 7%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-area img {
+            width: 45px;
+            height: 45px;
+            object-fit: contain;
+            border-radius: 50%;
+            background: white;
+        }
+
+        .logo-area h2 {
+            font-size: 18px;
+        }
+
+        .back-btn {
+            text-decoration: none;
+            color: white;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        /* HERO */
+        .hero {
+            text-align: center;
+            padding: 55px 20px 35px;
+        }
+
+        .hero h1 {
+            color: #087443;
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            max-width: 650px;
+            margin: auto;
+            color: #666;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        /* DONATION CARD */
+        .donation-container {
+            max-width: 850px;
+            margin: 20px auto 60px;
+            padding: 0 20px;
+        }
+
+        .donation-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .donation-card h2 {
+            color: #087443;
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+
+        .donation-card > p {
+            color: #777;
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
+
+        /* REKENING */
+        .rekening {
+            border: 1px solid #e4e4e4;
+            border-radius: 15px;
+            padding: 22px;
+            margin-bottom: 15px;
+        }
+
+        .bank {
+            font-size: 17px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .nomor-rekening {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            background: #f3f8f5;
+            padding: 13px 15px;
+            border-radius: 10px;
+            margin: 10px 0;
+        }
+
+        .nomor-rekening span {
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: #087443;
+        }
+
+        .copy-btn {
+            border: none;
+            background: #087443;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 12px;
+        }
+
+        .copy-btn:hover {
+            background: #065b35;
+        }
+
+        .pemilik {
+            font-size: 13px;
+            color: #777;
+        }
+
+        /* CARA DONASI */
+        .steps {
+            margin-top: 30px;
+        }
+
+        .steps h3 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .step {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 13px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .number {
+            min-width: 28px;
+            height: 28px;
+            background: #087443;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+
+        /* WHATSAPP */
+        .whatsapp-btn {
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            background: #25D366;
+            color: white;
+            padding: 15px;
+            border-radius: 12px;
+            margin-top: 30px;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+
+        .whatsapp-btn:hover {
+            background: #1ebe5d;
+            transform: translateY(-2px);
+        }
+
+        .note {
+            text-align: center;
+            color: #888;
+            font-size: 12px;
+            margin-top: 12px;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 25px 15px;
+            background: #075c36;
+            color: white;
+            font-size: 13px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 600px) {
+            .logo-area h2 {
+                font-size: 14px;
+            }
+
+            .hero h1 {
+                font-size: 26px;
+            }
+
+            .donation-card {
+                padding: 22px;
+            }
+
+            .nomor-rekening span {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="logo-area">
+            <img src="logo.jpg" alt="Logo LKSA">
+            <h2>LKSA-PKU-MUHAMMADIYAH-BBS</h2>
+        </div>
+
+        <a href="index.html" class="back-btn">
+            ← Kembali
+        </a>
+    </nav>
+
+
+    <!-- HERO -->
+    <section class="hero">
+        <h1>Salurkan Donasi Anda</h1>
+
+        <p>
+            Mari bersama membantu dan memberikan manfaat bagi
+            anak-anak di LKSA-PKU-MUHAMMADIYAH-BBS.
+            Setiap donasi yang diberikan sangat berarti.
+        </p>
+    </section>
+
+
+    <!-- DONATION -->
+    <main class="donation-container">
+
+        <div class="donation-card">
+
+            <h2>Rekening Donasi</h2>
+
+            <p>
+                Silakan transfer donasi melalui salah satu rekening
+                yang tersedia di bawah ini.
+            </p>
+
+
+            <!-- REKENING BCA -->
+            <div class="rekening">
+
+                <div class="bank">
+                    🏦 BCA
+                </div>
+
+                <div class="nomor-rekening">
+
+                    <span id="rekeningBCA">
+                        1234567890
+                    </span>
+
+                    <button class="copy-btn"
+                            onclick="copyRekening('rekeningBCA')">
+                        Salin
+                    </button>
+
+                </div>
+
+                <div class="pemilik">
+                    a.n. LKSA-PKU-MUHAMMADIYAH-BBS
+                </div>
+
+            </div>
+
+
+            <!-- REKENING BANK LAIN -->
+            <div class="rekening">
+
+                <div class="bank">
+                    🏦 BANK MUAMALAT
+                </div>
+
+                <div class="nomor-rekening">
+
+                    <span id="rekeningMuamalat">
+                        9876543210
+                    </span>
+
+                    <button class="copy-btn"
+                            onclick="copyRekening('rekeningMuamalat')">
+                        Salin
+                    </button>
+
+                </div>
+
+                <div class="pemilik">
+                    a.n. LKSA-PKU-MUHAMMADIYAH-BBS
+                </div>
+
+            </div>
+
+
+            <!-- CARA DONASI -->
+            <div class="steps">
+
+                <h3>Cara Berdonasi</h3>
+
+                <div class="step">
+                    <div class="number">1</div>
+                    <div>
+                        Pilih salah satu rekening donasi di atas.
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="number">2</div>
+                    <div>
+                        Lakukan transfer sesuai nominal yang ingin
+                        Anda donasikan.
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="number">3</div>
+                    <div>
+                        Setelah melakukan transfer, klik tombol
+                        konfirmasi melalui WhatsApp.
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- WHATSAPP -->
+            <a
+                href="https://wa.me/6281234567890?text=Assalamualaikum%20saya%20ingin%20mengkonfirmasi%20bahwa%20saya%20telah%20melakukan%20donasi%20untuk%20LKSA-PKU-MUHAMMADIYAH-BBS."
+                target="_blank"
+                class="whatsapp-btn">
+
+                💬 Konfirmasi Donasi via WhatsApp
+
+            </a>
+
+            <div class="note">
+                Mohon sertakan bukti transfer saat melakukan konfirmasi.
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer>
+        © 2026 LKSA-PKU-MUHAMMADIYAH-BBS
+    </footer>
+
+
+    <script>
+        function copyRekening(id) {
+
+            const rekening =
+                document.getElementById(id).innerText;
+
+            navigator.clipboard.writeText(rekening);
+
+            alert("Nomor rekening berhasil disalin!");
+        }
+    </script>
+
+</body>
+</html>
